@@ -21,12 +21,17 @@ class MyText extends Component {
     }
 
     componentWillMount() {
-        emitter.addListener('copies', (copies) => {
+        this.subscription = emitter.addListener('copies', (copies) => {
             console.log('click get to text :' + copies);
             this.setState({
                 totalPrice: (parseFloat(this.props.singlePrice) * copies).toFixed(2) + '',
             });
         });
+    }
+
+    componentDidUnMount() {
+        emitter.removeListener(this.subscription);
+        // emitter.removeAllListeners();
     }
 
     render() {

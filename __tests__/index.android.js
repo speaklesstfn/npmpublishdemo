@@ -1,12 +1,18 @@
-import 'react-native';
-import React from 'react';
-import Index from '../index.android.js';
-
 // Note: test renderer must be required after react-native.
-import renderer from 'react-test-renderer';
 
-it('renders correctly', () => {
-  const tree = renderer.create(
-    <Index />
-  );
+import emitter from '../app/custom_react_native/emitter/index';
+
+it('ttt', () => {
+    this.subscription = emitter.addListener('copies', (copies) => {
+        console.log('click get to text :' + copies);
+
+    });
+
+    console.log('dfdf');
+
+    emitter.emit('copies', 'ffddf');
+
+    this.subscription.unsubscribe();
+
+    emitter.emit('copies', 'fuck');
 });

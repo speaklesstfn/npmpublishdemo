@@ -18,7 +18,7 @@ export default class MyEventEmitter {
      */
     addListener(eventType, listener) {
         if (this.subject) {
-            this.subject.filter((obj) => {
+            let subscription = this.subject.filter((obj) => {
                 //过滤出所存储数据的eventName与订阅的消息名称一样的消息
                 return obj.eventName == eventType;
             }).subscribe({
@@ -32,6 +32,8 @@ export default class MyEventEmitter {
                     console.log('complete');
                 },
             });
+
+            return subscription;
         }
     }
 
@@ -46,6 +48,16 @@ export default class MyEventEmitter {
                 eventName: eventName,
                 values: values,
             });
+        }
+    }
+
+    /**
+     * 移除消息监听
+     * @param subscription 需要移除的监听的subscription
+     */
+    removeListener(subscription) {
+        if (subscription) {
+            subscription.unsubscribe();
         }
     }
 
