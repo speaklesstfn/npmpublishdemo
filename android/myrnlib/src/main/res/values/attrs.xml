@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CustomBtn">
+        <attr format="dimension" name="btnHorizontalSpace" />
+        <attr format="dimension" name="btnVerticalSpace" />
+    </declare-styleable>
+
+    <declare-styleable name="CustomTxt">
+        <attr format="color" name="single_price_txt_color" />
+        <attr format="dimension" name="single_price_txt_size" />
+        <attr format="color" name="total_price_txt_color" />
+        <attr format="dimension" name="total_price_txt_size" />
+    </declare-styleable>
+</resources>

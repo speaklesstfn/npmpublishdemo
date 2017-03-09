@@ -1,0 +1,3 @@
+rootProject.name = 'npmpublishdemo'
+
+include ':app', ':myrnlib'
